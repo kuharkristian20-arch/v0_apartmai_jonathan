@@ -7,12 +7,12 @@ export function Hero() {
   return (
     <section id="top" className="relative min-h-[92svh] w-full overflow-hidden">
       <Image
-        src="/images/hero.png"
+        src="/images/hero2.jpg"
         alt="Sunlit Adriatic seafront in Biograd na Moru with a stone waterfront and turquoise sea"
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover".
       />
       <div
         className="absolute inset-0 bg-gradient-to-b from-foreground/50 via-foreground/25 to-foreground/60"
