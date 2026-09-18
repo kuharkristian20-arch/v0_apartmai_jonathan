@@ -60,20 +60,20 @@
   /* Terracotta CTA */
   --primary: oklch(0.58 0.12 40);
   --primary-foreground: oklch(0.99 0.01 85);
-  /* Deep sea blue */
-  --secondary: oklch(0.5 0.07 230);
+  /* Royal blue — luxury accent */
+  --secondary: oklch(0.42 0.17 264);
   --secondary-foreground: oklch(0.99 0.01 85);
   --muted: oklch(0.95 0.012 85);
   --muted-foreground: oklch(0.5 0.02 235);
-  /* Soft sea accent */
-  --accent: oklch(0.92 0.03 210);
-  --accent-foreground: oklch(0.32 0.05 230);
+  /* Soft royal accent */
+  --accent: oklch(0.9 0.045 264);
+  --accent-foreground: oklch(0.35 0.11 264);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.9 0.012 85);
   --input: oklch(0.9 0.012 85);
   --ring: oklch(0.58 0.12 40);
   --chart-1: oklch(0.58 0.12 40);
-  --chart-2: oklch(0.5 0.07 230);
+  --chart-2: oklch(0.42 0.17 264);
   --chart-3: oklch(0.7 0.09 200);
   --chart-4: oklch(0.75 0.1 85);
   --chart-5: oklch(0.45 0.05 150);
@@ -98,18 +98,18 @@
   --popover-foreground: oklch(0.95 0.01 85);
   --primary: oklch(0.65 0.13 42);
   --primary-foreground: oklch(0.98 0.01 85);
-  --secondary: oklch(0.62 0.08 215);
-  --secondary-foreground: oklch(0.15 0.02 235);
+  --secondary: oklch(0.55 0.16 266);
+  --secondary-foreground: oklch(0.98 0.01 85);
   --muted: oklch(0.3 0.02 235);
   --muted-foreground: oklch(0.72 0.02 200);
-  --accent: oklch(0.35 0.04 220);
-  --accent-foreground: oklch(0.92 0.02 200);
+  --accent: oklch(0.4 0.09 264);
+  --accent-foreground: oklch(0.92 0.03 264);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.65 0.13 42);
   --chart-1: oklch(0.65 0.13 42);
-  --chart-2: oklch(0.62 0.08 215);
+  --chart-2: oklch(0.55 0.16 266);
   --chart-3: oklch(0.7 0.09 200);
   --chart-4: oklch(0.75 0.1 85);
   --chart-5: oklch(0.55 0.05 150);
@@ -126,6 +126,11 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
   body {
     @apply bg-background text-foreground;
