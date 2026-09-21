@@ -51,7 +51,7 @@ export function Hero() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href="#apartments"
-              className="inline-flex items-center justify-center rounded-full bg-[#4169E1] px-8 py-4 text-base font-medium text-white shadow-lg transition-all duration-200 hover:bg-[#2d4fc7] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+              className="inline-flex items-center justify-center rounded-full bg-[#01034A] px-8 py-4 text-base font-medium text-white shadow-lg transition-all duration-200 hover:bg-[#00022B] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
             >
               View Apartments
             </a>

@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { X } from 'lucide-react'
 import { navItems } from '@/lib/data'
 import { siteConfig } from '@/lib/site-config'
 import { BookButton } from '@/components/book-button'
+import { cn } from '@/lib/utils'
 
 type MobileNavProps = {
   open: boolean
@@ -15,13 +16,23 @@ type MobileNavProps = {
 export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
   const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    if (open) {
+      setMounted(true)
+    }
+  }, [open])
 
   useEffect(() => {
     if (!open) return
 
     const previouslyFocused = document.activeElement as HTMLElement | null
     document.body.style.overflow = 'hidden'
-    closeRef.current?.focus()
+
+    const focusTimer = setTimeout(() => {
+      closeRef.current?.focus()
+    }, 100)
 
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape') {
@@ -48,29 +59,38 @@ export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
     document.addEventListener('keydown', onKeyDown)
     return () => {
       document.removeEventListener('keydown', onKeyDown)
+      clearTimeout(focusTimer)
       document.body.style.overflow = ''
       const restore = previouslyFocused ?? triggerRef.current
       restore?.focus()
     }
   }, [open, onClose, triggerRef])
 
-  if (!open) return null
+  if (!mounted && !open) return null
 
   return (
-    <div className="fixed inset-0 z-50 lg:hidden">
-      <button
-        type="button"
-        aria-label="Close menu"
+    <div className="fixed inset-0 z-50 md:hidden">
+      {/* Backdrop */}
+      <div
         onClick={onClose}
-        className="absolute inset-0 bg-[#1a2234]/40 backdrop-blur-sm"
-        tabIndex={-1}
+        className={cn(
+          'absolute inset-0 bg-[#1a2234]/40 backdrop-blur-sm transition-opacity duration-300',
+          open ? 'opacity-100' : 'opacity-0',
+        )}
       />
+      {/* Panel */}
       <div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label="Site menu"
-        className="absolute right-0 top-0 flex h-full w-[min(20rem,85vw)] flex-col bg-white shadow-2xl"
+        className={cn(
+          'absolute right-0 top-0 flex h-full w-[min(20rem,85vw)] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out',
+          open ? 'translate-x-0' : 'translate-x-full',
+        )}
+        onTransitionEnd={() => {
+          if (!open) setMounted(false)
+        }}
       >
         <div className="flex items-center justify-between border-b border-slate-100 px-6 py-5">
           <span className="text-lg font-semibold text-[#1a2234]">{siteConfig.name}</span>
@@ -78,20 +98,20 @@ export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
             ref={closeRef}
             type="button"
             onClick={onClose}
-            className="rounded-full p-2 text-[#475569] transition-colors hover:bg-slate-100 hover:text-[#1a2234] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1]"
+            className="rounded-full p-2 text-[#475569] transition-colors hover:bg-slate-100 hover:text-[#1a2234] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A]"
           >
             <X className="size-5" aria-hidden="true" />
             <span className="sr-only">Close menu</span>
           </button>
         </div>
 
-        <nav aria-label="Mobile" className="flex flex-col gap-1 px-4 py-6">
+        <nav aria-label="Mobile" className="flex flex-col gap-1 overflow-y-auto px-4 py-6">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={item.href}
               onClick={onClose}
-              className="rounded-lg px-4 py-3 text-base font-medium text-[#475569] transition-colors hover:bg-[#eef3fc] hover:text-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1]"
+              className="rounded-lg px-4 py-3 text-base font-medium text-[#475569] transition-colors hover:bg-[#E8E9F0] hover:text-[#01034A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A]"
             >
               {item.label}
             </a>

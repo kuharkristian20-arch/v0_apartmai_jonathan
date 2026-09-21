@@ -25,7 +25,7 @@ export function WhyStaySection() {
                 delay={index * 80}
                 className="flex flex-col items-start rounded-3xl border border-slate-100 bg-white p-7 shadow-sm transition-all duration-300 hover:shadow-md"
               >
-                <span className="flex size-14 items-center justify-center rounded-2xl bg-[#4169E1] text-white shadow-md">
+                <span className="flex size-14 items-center justify-center rounded-2xl bg-[#01034A] text-white shadow-md">
                   <Icon className="size-7" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 text-lg font-semibold leading-tight text-[#1a2234]">

@@ -27,7 +27,7 @@ export function LocationSection() {
                   >
                     <div className="flex items-center gap-3">
                       {Icon && (
-                        <span className="flex size-9 items-center justify-center rounded-xl bg-white text-[#4169E1] shadow-sm">
+                        <span className="flex size-9 items-center justify-center rounded-xl bg-white text-[#01034A] shadow-sm">
                           <Icon className="size-4" aria-hidden="true" />
                         </span>
                       )}
@@ -48,16 +48,16 @@ export function LocationSection() {
                 href={siteConfig.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#4169E1] px-6 py-3 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-[#2d4fc7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] focus-visible:ring-offset-2"
+                className="inline-flex items-center gap-2 rounded-full bg-[#01034A] px-6 py-3 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-[#00022B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2"
               >
                 Open in Google Maps
                 <ArrowUpRight className="size-4" aria-hidden="true" />
               </a>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-[#4169E1]/10 bg-[#eef3fc] p-5">
+            <div className="mt-6 rounded-2xl border border-[#01034A]/10 bg-[#E8E9F0] p-5">
               <p className="text-sm font-light leading-relaxed text-[#475569]">
-                <span className="font-medium text-[#4169E1]">Gateway to the national parks:</span>{' '}
+                <span className="font-medium text-[#01034A]">Gateway to the national parks:</span>{' '}
                 Kornati Islands boat excursions depart directly from Marina Kornati
                 (900m away), and Krka National Park&apos;s waterfalls are a 45-minute
                 scenic drive inland.
@@ -70,7 +70,7 @@ export function LocationSection() {
               href={siteConfig.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-4/3 w-full overflow-hidden rounded-3xl border border-slate-100 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] focus-visible:ring-offset-2"
+              className="group relative block aspect-4/3 w-full overflow-hidden rounded-3xl border border-slate-100 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2"
             >
               <Image
                 src="https://images.pexels.com/photos/4799353/pexels-photo-4799353.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200"

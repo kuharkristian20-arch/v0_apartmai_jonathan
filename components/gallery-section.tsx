@@ -39,7 +39,7 @@ export function GallerySection() {
                 onClick={() => setActiveIndex(i)}
                 aria-label={`Open image: ${image.alt}`}
                 className={cn(
-                  'group relative overflow-hidden rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] focus-visible:ring-offset-2 focus-visible:ring-offset-white',
+                  'group relative overflow-hidden rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2 focus-visible:ring-offset-white',
                   spanClasses[image.span || 'normal'],
                 )}
               >

@@ -4,12 +4,12 @@
 @theme inline {
   --font-sans: var(--font-lexend);
 
-  --color-brand: #4169e1;
-  --color-brand-light: #6b8eef;
-  --color-brand-dark: #2d4fc7;
-  --color-brand-50: #eef3fc;
-  --color-brand-100: #dae6fa;
-  --color-brand-200: #b9cdf4;
+  --color-brand: #01034a;
+  --color-brand-light: #1a2266;
+  --color-brand-dark: #00022b;
+  --color-brand-50: #e8e9f0;
+  --color-brand-100: #d1d2e0;
+  --color-brand-200: #babcd6;
   --color-brand-foreground: #ffffff;
 
   --color-ink: #1a2234;
@@ -32,18 +32,18 @@
   --card-foreground: #1a2234;
   --popover: #ffffff;
   --popover-foreground: #1a2234;
-  --primary: #4169e1;
+  --primary: #01034a;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #1a2234;
   --muted: #f8fafc;
   --muted-foreground: #475569;
-  --accent: #eef3fc;
-  --accent-foreground: #2d4fc7;
+  --accent: #e8e9f0;
+  --accent-foreground: #00022b;
   --destructive: #dc2626;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #4169e1;
+  --ring: #01034a;
   --radius: 0.625rem;
 }
 

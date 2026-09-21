@@ -30,7 +30,7 @@ export function ApartmentCard({ apartment, priority, featured }: ApartmentCardPr
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
         {apartment.highlight && (
-          <span className="absolute left-4 top-4 rounded-full bg-[#4169E1] px-3 py-1 text-xs font-semibold text-white shadow-md">
+          <span className="absolute left-4 top-4 rounded-full bg-[#01034A] px-3 py-1 text-xs font-semibold text-white shadow-md">
             {apartment.highlight}
           </span>
         )}
@@ -39,11 +39,11 @@ export function ApartmentCard({ apartment, priority, featured }: ApartmentCardPr
       <div className={`flex flex-1 flex-col p-6 ${featured ? 'lg:p-8' : ''}`}>
         <div className="flex flex-wrap items-center gap-4 text-sm text-[#475569]">
           <span className="inline-flex items-center gap-1.5">
-            <Users className="size-4 text-[#4169E1]" aria-hidden="true" />
+            <Users className="size-4 text-[#01034A]" aria-hidden="true" />
             {apartment.sleeps}
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <BedDouble className="size-4 text-[#4169E1]" aria-hidden="true" />
+            <BedDouble className="size-4 text-[#01034A]" aria-hidden="true" />
             {apartment.beds}
           </span>
         </div>
@@ -62,7 +62,7 @@ export function ApartmentCard({ apartment, priority, featured }: ApartmentCardPr
               key={feature}
               className="flex items-center gap-2 text-sm text-[#475569]"
             >
-              <Check className="size-4 shrink-0 text-[#4169E1]" aria-hidden="true" />
+              <Check className="size-4 shrink-0 text-[#01034A]" aria-hidden="true" />
               {feature}
             </li>
           ))}
@@ -73,7 +73,7 @@ export function ApartmentCard({ apartment, priority, featured }: ApartmentCardPr
             href={siteConfig.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-[#4169E1] px-6 py-2.5 text-sm font-medium text-[#4169E1] transition-all duration-200 hover:bg-[#4169E1] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-[#01034A] px-6 py-2.5 text-sm font-medium text-[#01034A] transition-all duration-200 hover:bg-[#01034A] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2"
           >
             View Apartment
             <ArrowUpRight className="size-4" aria-hidden="true" />

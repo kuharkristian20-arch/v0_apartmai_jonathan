@@ -35,20 +35,20 @@ export function SiteHeader() {
         <a
           href="#top"
           className={cn(
-            'text-lg font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] focus-visible:ring-offset-2 rounded-md px-1',
+            'text-lg font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2 rounded-md px-1',
             scrolled ? 'text-[#1a2234]' : 'text-white',
           )}
         >
           {siteConfig.name}
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={item.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] focus-visible:ring-offset-2 rounded-md px-1',
+                'text-sm font-medium transition-colors hover:text-[#01034A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2 rounded-md px-1',
                 scrolled ? 'text-[#475569]' : 'text-white/90',
               )}
             >
@@ -57,7 +57,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
           <BookButton
             location="header"
             variant={scrolled ? 'solid' : 'light'}
@@ -73,7 +73,7 @@ export function SiteHeader() {
           aria-controls="mobile-nav"
           aria-label="Open menu"
           className={cn(
-            'rounded-lg p-2 transition-colors lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1]',
+            'rounded-lg p-2 transition-colors md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A]',
             scrolled ? 'text-[#1a2234]' : 'text-white',
           )}
         >

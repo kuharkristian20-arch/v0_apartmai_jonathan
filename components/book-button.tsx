@@ -16,10 +16,10 @@ const base =
   'inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
 
 const variants = {
-  solid: 'bg-[#4169E1] text-white hover:bg-[#2d4fc7] shadow-sm hover:shadow-md',
-  outline: 'border-2 border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white',
+  solid: 'bg-[#01034A] text-white hover:bg-[#00022B] shadow-sm hover:shadow-md',
+  outline: 'border-2 border-[#01034A] text-[#01034A] hover:bg-[#01034A] hover:text-white',
   light: 'bg-white text-[#1a2234] hover:bg-white/90 shadow-sm',
-  white: 'bg-white text-[#4169E1] hover:bg-white/90 shadow-sm',
+  white: 'bg-white text-[#01034A] hover:bg-white/90 shadow-sm',
 }
 
 const sizes = {

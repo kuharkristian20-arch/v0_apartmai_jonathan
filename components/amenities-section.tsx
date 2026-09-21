@@ -26,7 +26,7 @@ export function AmenitiesSection() {
                 className="flex flex-col rounded-3xl border border-slate-100 bg-white p-7 shadow-sm"
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex size-12 items-center justify-center rounded-2xl bg-[#eef3fc] text-[#4169E1]">
+                  <span className="flex size-12 items-center justify-center rounded-2xl bg-[#E8E9F0] text-[#01034A]">
                     <Icon className="size-6" aria-hidden="true" />
                   </span>
                   <h3 className="text-lg font-semibold text-[#1a2234]">
@@ -39,7 +39,7 @@ export function AmenitiesSection() {
                       key={item}
                       className="flex items-center gap-2 text-sm font-light text-[#475569]"
                     >
-                      <span className="size-1.5 rounded-full bg-[#4169E1]" aria-hidden="true" />
+                      <span className="size-1.5 rounded-full bg-[#01034A]" aria-hidden="true" />
                       {item}
                     </li>
                   ))}

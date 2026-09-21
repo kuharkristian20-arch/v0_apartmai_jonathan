@@ -6,7 +6,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="bg-[#4169E1] text-white">
+    <footer id="contact" className="bg-[#01034A] text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
@@ -79,7 +79,7 @@ export function SiteFooter() {
               href={siteConfig.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#4169E1] transition-all duration-200 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+              className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#01034A] transition-all duration-200 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
               Book on Booking.com
               <ArrowUpRight className="size-4" aria-hidden="true" />

@@ -62,7 +62,7 @@ export function GuestInfoSection() {
                 className="flex flex-col rounded-3xl border border-slate-100 bg-slate-50 p-7"
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex size-10 items-center justify-center rounded-xl bg-white text-[#4169E1] shadow-sm">
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-white text-[#01034A] shadow-sm">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                   <h3 className="text-lg font-semibold text-[#1a2234]">
@@ -89,10 +89,10 @@ export function GuestInfoSection() {
         </div>
 
         <Reveal>
-          <div className="mt-6 flex items-center gap-4 rounded-3xl border border-[#4169E1]/10 bg-[#eef3fc] p-6">
-            <Volume2 className="size-8 shrink-0 text-[#4169E1]" aria-hidden="true" />
+          <div className="mt-6 flex items-center gap-4 rounded-3xl border border-[#01034A]/10 bg-[#E8E9F0] p-6">
+            <Volume2 className="size-8 shrink-0 text-[#01034A]" aria-hidden="true" />
             <p className="text-sm font-light leading-relaxed text-[#475569]">
-              <span className="font-medium text-[#4169E1]">Pets:</span> Pets are not
+              <span className="font-medium text-[#01034A]">Pets:</span> Pets are not
               allowed at Residence Jonathan. Please contact the host via Booking.com
               messaging for any special accommodation requests.
             </p>
