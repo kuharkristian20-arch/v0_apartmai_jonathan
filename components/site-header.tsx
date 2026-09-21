@@ -25,36 +25,31 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-40 transition-colors duration-300',
+        'fixed inset-x-0 top-0 z-40 transition-all duration-300',
         scrolled
-          ? 'border-b border-border bg-background/85 backdrop-blur-md'
+          ? 'border-b border-slate-100 bg-white/90 backdrop-blur-md shadow-sm'
           : 'border-b border-transparent bg-transparent',
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a
           href="#top"
           className={cn(
-            'font-serif text-xl font-medium tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-            scrolled ? 'text-foreground' : 'text-background',
+            'text-lg font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] focus-visible:ring-offset-2 rounded-md px-1',
+            scrolled ? 'text-[#1a2234]' : 'text-white',
           )}
         >
           {siteConfig.name}
         </a>
 
-        <nav
-          aria-label="Primary"
-          className="hidden items-center gap-8 md:flex"
-        >
+        <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={item.href}
               className={cn(
-                'text-sm transition-colors hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-                scrolled
-                  ? 'text-foreground/80 focus-visible:ring-offset-background'
-                  : 'text-background/90 focus-visible:ring-offset-transparent',
+                'text-sm font-medium transition-colors hover:text-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] focus-visible:ring-offset-2 rounded-md px-1',
+                scrolled ? 'text-[#475569]' : 'text-white/90',
               )}
             >
               {item.label}
@@ -62,7 +57,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <BookButton
             location="header"
             variant={scrolled ? 'solid' : 'light'}
@@ -78,8 +73,8 @@ export function SiteHeader() {
           aria-controls="mobile-nav"
           aria-label="Open menu"
           className={cn(
-            'rounded-full p-2 transition-colors md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-            scrolled ? 'text-foreground' : 'text-background',
+            'rounded-lg p-2 transition-colors lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1]',
+            scrolled ? 'text-[#1a2234]' : 'text-white',
           )}
         >
           <Menu className="size-6" aria-hidden="true" />

@@ -50,13 +50,14 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
       role="dialog"
       aria-modal="true"
       aria-label={`Image ${index + 1} of ${images.length}: ${current.alt}`}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/90 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#1a2234]/90 backdrop-blur-sm"
+      onClick={onClose}
     >
       <button
         type="button"
         aria-label="Close gallery"
-        onClick={onClose}
-        className="absolute right-4 top-4 z-10 rounded-full bg-background/10 p-2.5 text-background transition-colors hover:bg-background/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background"
+        onClick={(e) => { e.stopPropagation(); onClose() }}
+        className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
       >
         <X className="size-6" aria-hidden="true" />
       </button>
@@ -64,8 +65,8 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
       <button
         type="button"
         aria-label="Previous image"
-        onClick={goPrev}
-        className="absolute left-3 z-10 rounded-full bg-background/10 p-2.5 text-background transition-colors hover:bg-background/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background sm:left-6"
+        onClick={(e) => { e.stopPropagation(); goPrev() }}
+        className="absolute left-3 z-10 rounded-full bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-6"
       >
         <ChevronLeft className="size-6" aria-hidden="true" />
       </button>
@@ -73,23 +74,26 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
       <button
         type="button"
         aria-label="Next image"
-        onClick={goNext}
-        className="absolute right-3 z-10 rounded-full bg-background/10 p-2.5 text-background transition-colors hover:bg-background/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background sm:right-6"
+        onClick={(e) => { e.stopPropagation(); goNext() }}
+        className="absolute right-3 z-10 rounded-full bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-6"
       >
         <ChevronRight className="size-6" aria-hidden="true" />
       </button>
 
-      <figure className="relative flex max-h-[90svh] w-full max-w-5xl flex-col items-center px-4">
+      <figure
+        className="relative flex max-h-[90svh] w-full max-w-5xl flex-col items-center px-4 sm:px-16"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="relative h-[70svh] w-full">
           <Image
-            src={current.src || '/placeholder.svg'}
+            src={current.src}
             alt={current.alt}
             fill
             sizes="90vw"
             className="object-contain"
           />
         </div>
-        <figcaption className="mt-4 text-center text-sm text-background/80">
+        <figcaption className="mt-4 text-center text-sm text-white/80">
           {current.caption ? `${current.caption} — ` : ''}
           {index + 1} / {images.length}
         </figcaption>

@@ -1,30 +1,30 @@
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { siteConfig, BOOKING_CTA_LABEL } from '@/lib/site-config'
+import { siteConfig, BOOKING_CTA_LABEL, BOOKING_CTA_LABEL_FINAL } from '@/lib/site-config'
 import type { CtaLocation } from '@/lib/types'
 
 type BookButtonProps = {
-  /** Where this CTA lives, so outbound clicks can be attributed to analytics later. */
   location: CtaLocation
-  variant?: 'solid' | 'outline' | 'light'
+  variant?: 'solid' | 'outline' | 'light' | 'white'
   size?: 'md' | 'lg'
   showIcon?: boolean
   className?: string
+  label?: 'default' | 'final'
 }
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+  'inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
 
 const variants = {
-  solid: 'bg-primary text-primary-foreground hover:bg-primary/90',
-  outline:
-    'border border-foreground/25 text-foreground hover:bg-foreground hover:text-background',
-  light: 'bg-background text-foreground hover:bg-background/90',
+  solid: 'bg-[#4169E1] text-white hover:bg-[#2d4fc7] shadow-sm hover:shadow-md',
+  outline: 'border-2 border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white',
+  light: 'bg-white text-[#1a2234] hover:bg-white/90 shadow-sm',
+  white: 'bg-white text-[#4169E1] hover:bg-white/90 shadow-sm',
 }
 
 const sizes = {
-  md: 'px-5 py-2.5 text-sm',
-  lg: 'px-7 py-3.5 text-base',
+  md: 'px-6 py-2.5 text-sm',
+  lg: 'px-8 py-4 text-base',
 }
 
 export function BookButton({
@@ -33,7 +33,10 @@ export function BookButton({
   size = 'md',
   showIcon = true,
   className,
+  label = 'default',
 }: BookButtonProps) {
+  const text = label === 'final' ? BOOKING_CTA_LABEL_FINAL : BOOKING_CTA_LABEL
+
   return (
     <a
       href={siteConfig.bookingUrl}
@@ -42,7 +45,7 @@ export function BookButton({
       data-cta-location={location}
       className={cn(base, variants[variant], sizes[size], className)}
     >
-      {BOOKING_CTA_LABEL}
+      {text}
       {showIcon && <ArrowUpRight className="size-4" aria-hidden="true" />}
       <span className="sr-only">(opens Booking.com in a new tab)</span>
     </a>

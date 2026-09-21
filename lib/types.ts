@@ -5,10 +5,11 @@ export type Apartment = {
   name: string
   summary: string
   sleeps: string
-  size?: string
+  beds: string
   features: string[]
   image: string
   imageAlt: string
+  highlight?: string
 }
 
 export type Amenity = {
@@ -17,23 +18,27 @@ export type Amenity = {
   icon: LucideIcon
 }
 
+export type AmenityCategory = {
+  id: string
+  title: string
+  icon: LucideIcon
+  items: string[]
+}
+
 export type GalleryImage = {
   id: string
   src: string
   alt: string
   caption?: string
-}
-
-export type Review = {
-  id: string
-  quote: string
-  author: string
+  span?: 'tall' | 'wide' | 'large' | 'normal'
 }
 
 export type Distance = {
   id: string
   label: string
   value: string
+  type: 'walk' | 'drive'
+  icon?: LucideIcon
 }
 
 export type NavItem = {
@@ -42,4 +47,11 @@ export type NavItem = {
   href: string
 }
 
-export type CtaLocation = 'hero' | 'header' | 'final' | 'sticky' | 'apartments'
+export type CtaLocation = 'hero' | 'header' | 'final' | 'sticky' | 'apartments' | 'footer'
+
+export type Pillar = {
+  id: string
+  icon: LucideIcon
+  title: string
+  description: string
+}
