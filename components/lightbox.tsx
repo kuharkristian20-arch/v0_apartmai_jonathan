@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import type { GalleryImage } from '@/lib/types'
@@ -14,6 +14,8 @@ type LightboxProps = {
 
 export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) {
   const isOpen = index !== null
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
 
   const goPrev = useCallback(() => {
     if (index === null) return
@@ -45,13 +47,32 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
   if (index === null) return null
   const current = images[index]
 
+  function onTouchStart(e: React.TouchEvent) {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  function onTouchEnd(e: React.TouchEvent) {
+    if (touchStartX.current === null || touchStartY.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    const dy = e.changedTouches[0].clientY - touchStartY.current
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx > 0) goPrev()
+      else goNext()
+    }
+    touchStartX.current = null
+    touchStartY.current = null
+  }
+
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-label={`Image ${index + 1} of ${images.length}: ${current.alt}`}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#1a2234]/90 backdrop-blur-sm"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-[#1a2234]/95 backdrop-blur-sm"
       onClick={onClose}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       <button
         type="button"
@@ -83,6 +104,8 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
       <figure
         className="relative flex max-h-[90svh] w-full max-w-5xl flex-col items-center px-4 sm:px-16"
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
       >
         <div className="relative h-[70svh] w-full">
           <Image

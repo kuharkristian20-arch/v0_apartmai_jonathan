@@ -1,14 +1,26 @@
 import type { LucideIcon } from 'lucide-react'
 
+export type ApartmentImage = {
+  src: string
+  alt: string
+  caption?: string
+}
+
 export type Apartment = {
   id: string
   name: string
   summary: string
+  description: string
   sleeps: string
   beds: string
+  bedrooms: string
+  bathrooms: string
+  size: string
   features: string[]
+  amenities: string[]
   image: string
   imageAlt: string
+  gallery: ApartmentImage[]
   highlight?: string
 }
 
@@ -47,7 +59,7 @@ export type NavItem = {
   href: string
 }
 
-export type CtaLocation = 'hero' | 'header' | 'final' | 'sticky' | 'apartments' | 'footer'
+export type CtaLocation = 'hero' | 'header' | 'final' | 'sticky' | 'apartments' | 'footer' | 'apartment-detail'
 
 export type Pillar = {
   id: string

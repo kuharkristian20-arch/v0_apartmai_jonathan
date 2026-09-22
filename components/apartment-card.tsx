@@ -1,7 +1,7 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import { Users, BedDouble, ArrowUpRight, Check } from 'lucide-react'
 import type { Apartment } from '@/lib/types'
-import { siteConfig } from '@/lib/site-config'
 
 type ApartmentCardProps = {
   apartment: Apartment
@@ -10,7 +10,10 @@ type ApartmentCardProps = {
 
 export function ApartmentCard({ apartment, priority }: ApartmentCardProps) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl">
+    <Link
+      href={`/apartments/${apartment.id}`}
+      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2"
+    >
       <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden">
         <Image
           src={apartment.image}
@@ -60,17 +63,12 @@ export function ApartmentCard({ apartment, priority }: ApartmentCardProps) {
         </ul>
 
         <div className="mt-auto pt-6">
-          <a
-            href={siteConfig.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-[#01034A] px-6 py-2.5 text-sm font-medium text-[#01034A] transition-all duration-200 hover:bg-[#01034A] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2"
-          >
+          <span className="inline-flex items-center gap-2 rounded-full border-2 border-[#01034A] px-6 py-2.5 text-sm font-medium text-[#01034A] transition-all duration-200 group-hover:bg-[#01034A] group-hover:text-white">
             View Apartment
             <ArrowUpRight className="size-4" aria-hidden="true" />
-          </a>
+          </span>
         </div>
       </div>
-    </article>
+    </Link>
   )
 }
