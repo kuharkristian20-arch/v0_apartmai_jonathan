@@ -1,9 +1,18 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import { Star, MapPin, Save as Waves, Sailboat, ArrowUpRight } from 'lucide-react'
 import { navItems } from '@/lib/data'
 import { siteConfig } from '@/lib/site-config'
 
 export function SiteFooter() {
+  const pathname = usePathname()
+  const isApartmentPage = pathname.startsWith('/apartments/')
   const year = new Date().getFullYear()
+
+  const linkHref = (href: string) =>
+    isApartmentPage && href !== '#top' ? `/${href}` : href
 
   return (
     <footer id="contact" className="bg-[#01034A] text-white">
@@ -11,9 +20,9 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <p className="text-2xl font-semibold tracking-tight">
+            <Link href="/" className="text-2xl font-semibold tracking-tight transition-colors hover:text-white/90">
               {siteConfig.name}
-            </p>
+            </Link>
             <p className="mt-3 flex items-start gap-2 text-sm font-light text-white/80">
               <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
               {siteConfig.address}
@@ -34,12 +43,12 @@ export function SiteFooter() {
             <ul className="mt-4 grid grid-cols-2 gap-x-8 gap-y-2.5 text-sm">
               {navItems.map((item) => (
                 <li key={item.id}>
-                  <a
-                    href={item.href}
+                  <Link
+                    href={linkHref(item.href)}
                     className="text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

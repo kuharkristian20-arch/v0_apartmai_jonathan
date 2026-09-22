@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, ArrowUpRight, Users, BedDouble, DoorClosed, Bath, Maximize, Check, Star } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Users, BedDouble, DoorClosed, Bath, Maximize, Check, Star, ChevronRight } from 'lucide-react'
 import type { Apartment } from '@/lib/types'
 import { siteConfig } from '@/lib/site-config'
 import { Reveal } from '@/components/reveal'
@@ -51,6 +51,18 @@ export function ApartmentDetail({ apartment }: ApartmentDetailProps) {
             <ArrowLeft className="size-4" aria-hidden="true" />
             Back to Apartments
           </Link>
+
+          <nav aria-label="Breadcrumb" className="mt-5 flex items-center gap-1.5 text-sm text-white/70">
+            <Link href="/" className="transition-colors hover:text-white">
+              Home
+            </Link>
+            <ChevronRight className="size-3.5" aria-hidden="true" />
+            <Link href="/#apartments" className="transition-colors hover:text-white">
+              Apartments
+            </Link>
+            <ChevronRight className="size-3.5" aria-hidden="true" />
+            <span className="text-white/90">{apartment.name}</span>
+          </nav>
 
           <div className="mt-6 max-w-3xl text-white">
             {apartment.highlight && (
@@ -220,6 +232,16 @@ export function ApartmentDetail({ apartment }: ApartmentDetailProps) {
                 <ApartmentCard apartment={apt} />
               </Reveal>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/#apartments"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#01034A] px-6 py-2.5 text-sm font-medium text-[#01034A] transition-all duration-200 hover:bg-[#01034A] hover:text-white"
+            >
+              <ArrowLeft className="size-4" aria-hidden="true" />
+              View All Apartments
+            </Link>
           </div>
         </div>
       </section>

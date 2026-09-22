@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { X } from 'lucide-react'
 import { navItems } from '@/lib/data'
 import { siteConfig } from '@/lib/site-config'
@@ -11,9 +12,10 @@ type MobileNavProps = {
   open: boolean
   onClose: () => void
   triggerRef: React.RefObject<HTMLButtonElement | null>
+  isApartmentPage?: boolean
 }
 
-export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
+export function MobileNav({ open, onClose, triggerRef, isApartmentPage }: MobileNavProps) {
   const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
   const [mounted, setMounted] = useState(false)
@@ -68,6 +70,9 @@ export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
 
   if (!mounted && !open) return null
 
+  const linkHref = (href: string) =>
+    isApartmentPage && href !== '#top' ? `/${href}` : href
+
   return (
     <div className="fixed inset-0 z-[100] h-[100dvh] md:hidden">
       {/* Backdrop */}
@@ -93,7 +98,13 @@ export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
         }}
       >
         <div className="flex items-center justify-between border-b border-slate-100 px-6 py-5">
-          <span className="text-lg font-semibold text-[#1a2234]">{siteConfig.name}</span>
+          <Link
+            href="/"
+            onClick={onClose}
+            className="text-lg font-semibold text-[#1a2234] transition-colors hover:text-[#01034A]"
+          >
+            {siteConfig.name}
+          </Link>
           <button
             ref={closeRef}
             type="button"
@@ -107,14 +118,14 @@ export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
 
         <nav aria-label="Mobile" className="flex flex-col gap-1 overflow-y-auto px-4 py-6">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.id}
-              href={item.href}
+              href={linkHref(item.href)}
               onClick={onClose}
               className="rounded-lg px-4 py-3 text-base font-medium text-[#475569] transition-colors hover:bg-[#E8E9F0] hover:text-[#01034A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A]"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
