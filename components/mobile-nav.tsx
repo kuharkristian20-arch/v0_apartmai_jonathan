@@ -69,7 +69,7 @@ export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
   if (!mounted && !open) return null
 
   return (
-    <div className="fixed inset-0 z-50 md:hidden">
+    <div className="fixed inset-0 z-[100] h-[100dvh] md:hidden">
       {/* Backdrop */}
       <div
         onClick={onClose}
@@ -85,7 +85,7 @@ export function MobileNav({ open, onClose, triggerRef }: MobileNavProps) {
         aria-modal="true"
         aria-label="Site menu"
         className={cn(
-          'absolute right-0 top-0 flex h-full w-[min(20rem,85vw)] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out',
+          'absolute right-0 top-0 flex h-[100dvh] w-[min(20rem,85vw)] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out',
           open ? 'translate-x-0' : 'translate-x-full',
         )}
         onTransitionEnd={() => {

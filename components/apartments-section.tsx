@@ -16,18 +16,14 @@ export function ApartmentsSection() {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {apartments.map((apartment, index) => (
             <Reveal
               key={apartment.id}
               delay={index * 100}
-              className={index === 0 ? 'h-full lg:col-span-2' : 'h-full'}
+              className="h-full"
             >
-              <ApartmentCard
-                apartment={apartment}
-                priority={index === 0}
-                featured={index === 0}
-              />
+              <ApartmentCard apartment={apartment} priority={index === 0} />
             </Reveal>
           ))}
         </div>

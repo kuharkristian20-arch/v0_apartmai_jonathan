@@ -6,27 +6,18 @@ import { siteConfig } from '@/lib/site-config'
 type ApartmentCardProps = {
   apartment: Apartment
   priority?: boolean
-  featured?: boolean
 }
 
-export function ApartmentCard({ apartment, priority, featured }: ApartmentCardProps) {
+export function ApartmentCard({ apartment, priority }: ApartmentCardProps) {
   return (
-    <article
-      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl ${
-        featured ? 'lg:col-span-2 lg:flex-row' : ''
-      }`}
-    >
-      <div
-        className={`relative w-full overflow-hidden ${
-          featured ? 'aspect-16/10 lg:aspect-auto lg:flex-1' : 'aspect-4/3'
-        }`}
-      >
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl">
+      <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden">
         <Image
           src={apartment.image}
           alt={apartment.imageAlt}
           fill
           priority={priority}
-          sizes={featured ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 33vw, 100vw'}
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
         {apartment.highlight && (
@@ -36,7 +27,7 @@ export function ApartmentCard({ apartment, priority, featured }: ApartmentCardPr
         )}
       </div>
 
-      <div className={`flex flex-1 flex-col p-6 ${featured ? 'lg:p-8' : ''}`}>
+      <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-center gap-4 text-sm text-[#475569]">
           <span className="inline-flex items-center gap-1.5">
             <Users className="size-4 text-[#01034A]" aria-hidden="true" />
@@ -56,7 +47,7 @@ export function ApartmentCard({ apartment, priority, featured }: ApartmentCardPr
           {apartment.summary}
         </p>
 
-        <ul className={`mt-5 grid gap-2 ${featured ? 'sm:grid-cols-2' : ''}`}>
+        <ul className="mt-5 grid gap-2">
           {apartment.features.map((feature) => (
             <li
               key={feature}
@@ -68,7 +59,7 @@ export function ApartmentCard({ apartment, priority, featured }: ApartmentCardPr
           ))}
         </ul>
 
-        <div className="mt-6 pt-2">
+        <div className="mt-auto pt-6">
           <a
             href={siteConfig.bookingUrl}
             target="_blank"
