@@ -13,7 +13,7 @@ const heroImages = [
   { src: '/images/507457148.jpg', alt: 'Scenic coastline of Biograd na Moru, Croatia' },
 ]
 
-const SLIDE_DURATION = 5000
+const SLIDE_DURATION = 3000
 
 export function Hero() {
   const [current, setCurrent] = useState(0)
@@ -37,7 +37,7 @@ export function Hero() {
           fill
           priority={i === 0}
           sizes="100vw"
-          className={`object-cover transition-opacity duration-[1500ms] ease-in-out ${
+          className={`object-cover transition-opacity duration-[2500ms] ease-in-out ${
             i === current ? 'opacity-100' : 'opacity-0'
           }`}
         />
