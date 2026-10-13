@@ -5,7 +5,8 @@ import { ApartmentsSection } from '@/components/apartments-section'
 import { GallerySection } from '@/components/gallery-section'
 import { AmenitiesSection } from '@/components/amenities-section'
 import { LocationSection } from '@/components/location-section'
-import { ReviewsSection } from '@/components/reviews-section'
+import { WhyStaySection } from '@/components/why-stay-section'
+import { GuestInfoSection } from '@/components/guest-info-section'
 import { FinalCta } from '@/components/final-cta'
 import { SiteFooter } from '@/components/site-footer'
 import { StickyCta } from '@/components/sticky-cta'
@@ -21,7 +22,8 @@ export default function HomePage() {
         <GallerySection />
         <AmenitiesSection />
         <LocationSection />
-        <ReviewsSection />
+        <WhyStaySection />
+        <GuestInfoSection />
         <FinalCta />
       </main>
       <SiteFooter />

@@ -1,28 +1,20 @@
-/**
- * Centralized external references and contact details.
- * Replace every PLACEHOLDER value with confirmed data before launch.
- * These are the only places any of these values should live.
- */
 export const siteConfig = {
   name: 'Residence Jonathan',
   location: 'Biograd na Moru, Croatia',
+  address: 'Jadranska 3a, 23210 Biograd na Moru, Croatia',
   description:
-    'Residence Jonathan offers calm, sunlit apartments moments from the Adriatic in Biograd na Moru, Croatia. A refined base for your coastal stay.',
+    'Quiet, light-filled residences just a 2-minute walk from Bošana Beach and the Adriatic Sea. Rated 9.4 Exceptional by verified guests.',
 
-  // Canonical site URL — replace with the real domain when available.
   url: 'https://residence-jonathan.example.com',
+  ogImage: 'https://images.pexels.com/photos/33473011/pexels-photo-33473011.jpeg?auto=compress&cs=tinysrgb&h=630&w=1200',
 
-  // The single Booking.com property URL used by every "Check Availability" CTA.
-  // PLACEHOLDER — replace with the real Booking.com property link.
-  bookingUrl: 'https://www.booking.com/',
+  bookingUrl: 'https://www.booking.com/hotel/hr/residence-jonathan.html',
+  googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Jadranska+3a+23210+Biograd+na+Moru+Croatia',
 
-  // "Open in Google Maps" destination.
-  // PLACEHOLDER — replace with the confirmed Google Maps location URL.
-  googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Biograd+na+Moru+Croatia',
-
-  // Contact details — PLACEHOLDERS, replace with confirmed details.
-  email: 'hello@residence-jonathan.example.com',
-  phone: '+385 00 000 0000',
+  rating: '9.4',
+  ratingLabel: 'Exceptional',
+  reviewCount: '66+',
 } as const
 
-export const BOOKING_CTA_LABEL = 'Check Availability'
+export const BOOKING_CTA_LABEL = 'Book Now'
+export const BOOKING_CTA_LABEL_FINAL = 'Check Availability on Booking.com'

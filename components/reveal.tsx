@@ -10,10 +10,6 @@ type RevealProps = {
   as?: 'div' | 'section' | 'li'
 }
 
-/**
- * Fades/rises content into view on scroll.
- * Honors prefers-reduced-motion by rendering content immediately with no transform.
- */
 export function Reveal({ children, className, delay = 0, as = 'div' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
@@ -47,8 +43,7 @@ export function Reveal({ children, className, delay = 0, as = 'div' }: RevealPro
 
   return (
     <Comp
-      // @ts-expect-error — ref type varies by element, safe at runtime
-      ref={ref}
+      ref={ref as React.Ref<HTMLDivElement>}
       className={cn(
         !reduced && 'transition-all duration-700 ease-out will-change-transform',
         !reduced && !visible && 'translate-y-6 opacity-0',
