@@ -6,8 +6,8 @@ export function Hero() {
   return (
     <section id="top" className="relative min-h-[92svh] w-full overflow-hidden">
       <Image
-        src="https://images.pexels.com/photos/33473011/pexels-photo-33473011.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1920"
-        alt="Sunlit coastal terrace overlooking the Adriatic Sea in Croatia"
+        src="/images/508355078.jpg"
+        alt="Residence Jonathan exterior with sea view in Biograd na Moru, Croatia"
         fill
         priority
         sizes="100vw"

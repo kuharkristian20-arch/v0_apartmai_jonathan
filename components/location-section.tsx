@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { ArrowUpRight, MapPin } from 'lucide-react'
 import { distances } from '@/lib/data'
 import { siteConfig } from '@/lib/site-config'
@@ -65,28 +64,24 @@ export function LocationSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
-            <a
-              href={siteConfig.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block aspect-4/3 w-full overflow-hidden rounded-3xl border border-slate-100 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2"
-            >
-              <Image
-                src="https://images.pexels.com/photos/4799353/pexels-photo-4799353.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200"
-                alt="Aerial view of the Croatian Adriatic coastline near Biograd na Moru"
-                fill
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          <div className="relative aspect-4/3 w-full overflow-hidden rounded-3xl border border-slate-100 shadow-sm">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1707.9942422631598!2d15.444375854498963!3d43.949176320753935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4761df8635e5044b%3A0x2d2631e45abbfde1!2sJadranska%20ul.%203%2C%2023210%2C%20Biograd%20na%20Moru!5e0!3m2!1shr!2shr!4v1791902724074!5m2!1shr!2shr"
+                width="100%"
+                height="100%"
+                style={{ border: 0, position: 'absolute', inset: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Residence Jonathan — Jadranska ul. 3, Biograd na Moru"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1a2234]/80 to-transparent p-6">
+              <div className="pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1a2234]/80 to-transparent p-6">
                 <p className="flex items-center gap-2 text-white">
                   <MapPin className="size-5" aria-hidden="true" />
                   <span className="text-sm font-medium">Jadranska 3a, Biograd na Moru</span>
                 </p>
               </div>
-            </a>
-          </Reveal>
+            </div>
         </div>
       </div>
     </section>
