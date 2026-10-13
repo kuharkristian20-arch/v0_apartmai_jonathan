@@ -1,18 +1,47 @@
+'use client'
+
+import { useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 import { MapPin, Star } from 'lucide-react'
 import { siteConfig } from '@/lib/site-config'
 
+const heroImages = [
+  { src: '/images/508355078.jpg', alt: 'Residence Jonathan exterior with sea view in Biograd na Moru, Croatia' },
+  { src: '/images/507456428.jpg', alt: 'Coastal view of the Adriatic Sea near Residence Jonathan' },
+  { src: '/images/706579500.jpg', alt: 'Modern apartment interior at Residence Jonathan' },
+  { src: '/images/706586147.jpg', alt: 'Terrace with sea views at Residence Jonathan' },
+  { src: '/images/507457148.jpg', alt: 'Scenic coastline of Biograd na Moru, Croatia' },
+]
+
+const SLIDE_DURATION = 5000
+
 export function Hero() {
+  const [current, setCurrent] = useState(0)
+
+  const goNext = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % heroImages.length)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(goNext, SLIDE_DURATION)
+    return () => clearInterval(timer)
+  }, [goNext])
+
   return (
     <section id="top" className="relative min-h-[92svh] w-full overflow-hidden">
-      <Image
-        src="/images/508355078.jpg"
-        alt="Residence Jonathan exterior with sea view in Biograd na Moru, Croatia"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      {heroImages.map((image, i) => (
+        <Image
+          key={image.src}
+          src={image.src}
+          alt={image.alt}
+          fill
+          priority={i === 0}
+          sizes="100vw"
+          className={`object-cover transition-opacity duration-[1500ms] ease-in-out ${
+            i === current ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
       <div
         className="absolute inset-0 bg-gradient-to-b from-[#1a2234]/60 via-[#1a2234]/25 to-[#1a2234]/65"
         aria-hidden="true"
@@ -61,6 +90,22 @@ export function Hero() {
             >
               Explore Residence
             </a>
+          </div>
+
+          <div className="mt-8 flex items-center gap-2">
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setCurrent(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 ${
+                  i === current
+                    ? 'w-8 bg-white'
+                    : 'w-4 bg-white/40 hover:bg-white/60'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
