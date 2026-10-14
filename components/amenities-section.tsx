@@ -4,7 +4,7 @@ import { SectionHeading } from '@/components/section-heading'
 
 export function AmenitiesSection() {
   return (
-    <section id="amenities" className="scroll-mt-header bg-slate-50 py-20 lg:py-28">
+    <section id="amenities" className="scroll-mt-header bg-[#C8E6F5] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
@@ -26,7 +26,7 @@ export function AmenitiesSection() {
                 className="flex flex-col rounded-3xl border border-slate-100 bg-white p-7 shadow-sm"
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex size-12 items-center justify-center rounded-2xl bg-[#E8E9F0] text-[#01034A]">
+                  <span className="flex size-12 items-center justify-center rounded-2xl bg-[#A8D8F0] text-[#12233F]">
                     <Icon className="size-6" aria-hidden="true" />
                   </span>
                   <h3 className="text-lg font-semibold text-[#1a2234]">

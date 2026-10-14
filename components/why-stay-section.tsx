@@ -4,7 +4,7 @@ import { SectionHeading } from '@/components/section-heading'
 
 export function WhyStaySection() {
   return (
-    <section id="why-stay" className="scroll-mt-header bg-slate-50 py-20 lg:py-28">
+    <section id="why-stay" className="scroll-mt-header bg-[#C8E6F5] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading

@@ -22,7 +22,7 @@ export function LocationSection() {
                 return (
                   <div
                     key={distance.id}
-                    className="flex items-center justify-between gap-4 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4"
+                    className="flex items-center justify-between gap-4 rounded-2xl border border-[#8FCDE8] bg-[#C8E6F5] px-5 py-4"
                   >
                     <div className="flex items-center gap-3">
                       {Icon && (
@@ -54,7 +54,7 @@ export function LocationSection() {
               </a>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-[#01034A]/10 bg-[#E8E9F0] p-5">
+            <div className="mt-6 rounded-2xl border border-[#12233F]/10 bg-[#C8E6F5] p-5">
               <p className="text-sm font-light leading-relaxed text-[#475569]">
                 <span className="font-medium text-[#01034A]">Gateway to the national parks:</span>{' '}
                 Kornati Islands boat excursions depart directly from Marina Kornati

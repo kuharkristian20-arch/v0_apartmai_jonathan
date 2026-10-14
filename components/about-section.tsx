@@ -51,21 +51,21 @@ export function AboutSection() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <div className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
+              <div className="flex items-center gap-3 rounded-2xl border border-[#8FCDE8] bg-[#C8E6F5] px-5 py-4">
                 <Star className="size-6 fill-[#01034A] text-[#01034A]" aria-hidden="true" />
                 <div>
                   <p className="text-2xl font-semibold text-[#1a2234]">{siteConfig.rating}</p>
                   <p className="text-xs text-[#475569]">{siteConfig.ratingLabel} rating</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
+              <div className="flex items-center gap-3 rounded-2xl border border-[#8FCDE8] bg-[#C8E6F5] px-5 py-4">
                 <Waves className="size-6 text-[#01034A]" aria-hidden="true" />
                 <div>
                   <p className="text-2xl font-semibold text-[#1a2234]">200 m</p>
                   <p className="text-xs text-[#475569]">to Bošana Beach</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4">
+              <div className="flex items-center gap-3 rounded-2xl border border-[#8FCDE8] bg-[#C8E6F5] px-5 py-4">
                 <MapPin className="size-6 text-[#01034A]" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-semibold text-[#1a2234]">Jadranska 3a</p>

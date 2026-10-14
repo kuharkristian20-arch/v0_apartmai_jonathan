@@ -17,8 +17,16 @@
   --color-ink-muted: #94a3b8;
 
   --color-surface: #ffffff;
-  --color-surface-alt: #f8fafc;
-  --color-surface-warm: #f1f5f9;
+  --color-surface-alt: #C8E6F5;
+  --color-surface-warm: #A8D8F0;
+
+  /* Coastal / sea-blue palette */
+  --color-sea: #C8E6F5;
+  --color-sea-mid: #A8D8F0;
+  --color-sea-card: #ffffff;
+
+  /* Deep navy (headings, buttons) */
+  --color-navy: #12233F;
 
   --color-border: #e2e8f0;
   --color-border-soft: #eef2f7;
@@ -73,4 +81,12 @@
 
 @utility scroll-mt-header {
   scroll-margin-top: 5rem;
+}
+
+@utility wave-transition {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -1px;
 }
