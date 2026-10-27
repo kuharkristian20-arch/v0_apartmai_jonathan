@@ -29,6 +29,24 @@ export function SiteHeader() {
   const linkHref = (href: string) =>
     isApartmentPage && href !== '#top' ? `/${href}` : href
 
+  // Scroll imperatively so the same link works on repeated clicks.
+  // The browser ignores hash-link clicks when the hash already matches
+  // the current URL — this bypasses that by scrolling directly.
+  function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    // Only intercept same-page hash links
+    if (!href.startsWith('#')) return
+    e.preventDefault()
+    if (href === '#top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      history.replaceState(null, '', ' ') // clear hash cleanly
+    } else {
+      const id = href.slice(1)
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      history.replaceState(null, '', href)
+    }
+  }
+
   return (
     <>
       <header
@@ -55,6 +73,7 @@ export function SiteHeader() {
               <Link
                 key={item.id}
                 href={linkHref(item.href)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={cn(
                   'relative text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2 rounded-md px-1',
                   'after:absolute after:bottom-[-3px] after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100',

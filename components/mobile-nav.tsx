@@ -73,6 +73,23 @@ export function MobileNav({ open, onClose, triggerRef, isApartmentPage }: Mobile
   const linkHref = (href: string) =>
     isApartmentPage && href !== '#top' ? `/${href}` : href
 
+  // Same imperative scroll fix as desktop nav — prevents the browser
+  // from ignoring repeated clicks on the same hash link.
+  function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    if (!href.startsWith('#')) return
+    e.preventDefault()
+    if (href === '#top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      history.replaceState(null, '', ' ')
+    } else {
+      const id = href.slice(1)
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      history.replaceState(null, '', href)
+    }
+    onClose()
+  }
+
   return (
     <div className="fixed inset-0 z-[100] h-[100dvh] md:hidden">
       {/* Backdrop */}
@@ -121,7 +138,7 @@ export function MobileNav({ open, onClose, triggerRef, isApartmentPage }: Mobile
             <Link
               key={item.id}
               href={linkHref(item.href)}
-              onClick={onClose}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="rounded-lg px-4 py-3 text-base font-medium text-[#475569] transition-colors hover:bg-[#E8E9F0] hover:text-[#01034A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A]"
             >
               {item.label}
