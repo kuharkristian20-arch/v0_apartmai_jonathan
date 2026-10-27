@@ -56,8 +56,11 @@ export function SiteHeader() {
                 key={item.id}
                 href={linkHref(item.href)}
                 className={cn(
-                  'text-sm font-medium transition-colors hover:text-[#01034A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2 rounded-md px-1',
-                  scrolled ? 'text-[#475569]' : 'text-white/90',
+                  'relative text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#01034A] focus-visible:ring-offset-2 rounded-md px-1',
+                  'after:absolute after:bottom-[-3px] after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100',
+                  scrolled
+                    ? 'text-[#475569] hover:text-[#01034A] after:bg-[#01034A]'
+                    : 'text-white/90 hover:text-white after:bg-white',
                 )}
               >
                 {item.label}

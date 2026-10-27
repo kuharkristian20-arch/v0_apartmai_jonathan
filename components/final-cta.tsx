@@ -45,6 +45,21 @@ export function FinalCta() {
           </div>
         </Reveal>
       </div>
+
+      {/* Wave into footer — navy fills from below, image shows through above */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 80"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          className="block h-14 w-full sm:h-16 lg:h-20"
+        >
+          <path
+            d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
+            fill="#01034A"
+          />
+        </svg>
+      </div>
     </section>
   )
 }
